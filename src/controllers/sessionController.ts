@@ -19,7 +19,6 @@ export const sessionController = async (req: Request, res: Response) => {
       return res.sendStatus(401);
     }
   } catch (error) {
-    console.error('[SESSION ERROR]', error);
     return res.sendStatus(500);
   }
 };

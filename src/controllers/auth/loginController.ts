@@ -8,10 +8,7 @@ export async function loginController(req: Request, res: Response) {
   const { email, password } = req.body;
 
   if (!email || !password) {
-    return res.sendError({
-      status: 400,
-      error: 'Email and password are required',
-    });
+    return res.sendError(400, 'email already exist');
   }
 
   const user = await UserModel.findByEmail(email);
@@ -20,10 +17,7 @@ export async function loginController(req: Request, res: Response) {
     const isValidPassword = await bcrypt.compare(password, user.password);
 
     if (!isValidPassword) {
-      return res.sendError({
-        status: 400,
-        error: 'Invalid email or password',
-      });
+      return res.sendError(400, 'invalid email or password');
     }
 
     const tokenServiceResponse = TokenService.sign({
@@ -49,9 +43,6 @@ export async function loginController(req: Request, res: Response) {
       data: { token },
     });
   } else {
-    return res.sendError({
-      status: 400,
-      error: 'Invalid email or password',
-    });
+    return res.sendError(400, 'invalid email or password');
   }
 }

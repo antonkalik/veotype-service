@@ -15,7 +15,7 @@ export class Service {
     const isInternal = status === 500;
 
     if (isInternal) {
-      console.error(error);
+      console.error(`[ERROR] ${status}`, { error });
     }
 
     return {

@@ -13,3 +13,8 @@ userRouter.delete('/', deleteUserController);
 userRouter.post('/logout', logoutController);
 userRouter.post('/update-password', updatePasswordController);
 authRouter.post('/create-signup-link', createSignUpLinkController);
+authRouter.get('/settings', (req, res) => {
+  res.json({
+    theme: 'Brown',
+  });
+});

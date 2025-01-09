@@ -41,7 +41,7 @@ export const signUpTokenController = async (
     const signUpServiceResponse = await SignUpService.sign(req.body);
 
     if (!signUpServiceResponse.success) {
-      return res.sendError(signUpServiceResponse);
+      return res.sendError(signUpServiceResponse.status);
     }
 
     return res.sendData(signUpServiceResponse);

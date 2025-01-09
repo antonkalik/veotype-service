@@ -6,7 +6,7 @@ export async function signUpController(req: Request<{}, {}, SignUpPayload>, res:
   const signupServiceResponse = await SignUpService.sign(req.body);
 
   if (!signupServiceResponse.success) {
-    return res.sendError(signupServiceResponse);
+    return res.sendError(signupServiceResponse.status);
   }
 
   return res.sendData(signupServiceResponse);

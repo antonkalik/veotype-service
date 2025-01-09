@@ -20,10 +20,7 @@ export const updateUserController = async (req: Request, res: Response) => {
     const existingUserName = await UserModel.findByUsername(username);
 
     if (existingUserName) {
-      return res.sendError({
-        error: 'Username already exists',
-        status: 400,
-      });
+      return res.sendError(400, 'username already exists');
     }
 
     const updatedUser = await UserModel.updateById<typeof payload>(req.user.id, payload);
