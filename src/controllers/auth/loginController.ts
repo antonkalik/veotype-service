@@ -30,9 +30,6 @@ export async function loginController(req: Request, res: Response) {
     }
 
     const { token } = tokenServiceResponse.data;
-
-    console.log('[TOKEN LOGIN]', token);
-
     const sessionServiceResponse = await SessionService.set(user.id, token);
 
     if (!sessionServiceResponse.success) {
