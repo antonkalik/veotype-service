@@ -7,5 +7,5 @@ export const createSignUpLinkController = async (_: Request, res: Response) => {
   if (!signUpLinkServiceResponse.success) {
     return res.sendError(signUpLinkServiceResponse.status);
   }
-  return res.sendData(signUpLinkServiceResponse);
+  return res.sendData(signUpLinkServiceResponse.data);
 };

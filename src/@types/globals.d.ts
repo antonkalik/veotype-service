@@ -16,7 +16,7 @@ export declare global {
 
     interface Response {
       sendError: (status?: number, error?: string) => Express.Response;
-      sendData: <T>({ data, status }: { data: T; status?: number }) => Express.Response;
+      sendData: <T>(data: T, status?: number) => Express.Response;
     }
   }
 }

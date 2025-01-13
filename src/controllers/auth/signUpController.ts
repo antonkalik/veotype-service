@@ -9,5 +9,5 @@ export async function signUpController(req: Request<{}, {}, SignUpPayload>, res:
     return res.sendError(signupServiceResponse.status);
   }
 
-  return res.sendData(signupServiceResponse);
+  return res.sendData(signupServiceResponse.data);
 }

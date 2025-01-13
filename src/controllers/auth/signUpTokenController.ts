@@ -44,7 +44,7 @@ export const signUpTokenController = async (
       return res.sendError(signUpServiceResponse.status);
     }
 
-    return res.sendData(signUpServiceResponse);
+    return res.sendData(signUpServiceResponse.data);
   } catch (error) {
     return res.sendStatus(500);
   }

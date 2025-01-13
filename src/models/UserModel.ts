@@ -8,7 +8,7 @@ export class UserModel extends Model {
   public static async create<Payload>(data: Payload) {
     return super.insert<Payload & DefaultUserData>({
       ...data,
-      role: Role.Blogger,
+      role: Role.User,
     });
   }
 

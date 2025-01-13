@@ -36,9 +36,7 @@ export async function loginController(req: Request, res: Response) {
       return res.sendStatus(500);
     }
 
-    res.sendData({
-      data: { token },
-    });
+    res.sendData({ token });
   } else {
     return res.sendError(400, 'invalid email or password');
   }

@@ -24,7 +24,7 @@ export const updateUserController = async (req: Request, res: Response) => {
     }
 
     const updatedUser = await UserModel.updateById<typeof payload>(req.user.id, payload);
-    res.sendData({ data: updatedUser });
+    res.sendData(updatedUser);
   } catch (error) {
     res.sendStatus(500);
   }

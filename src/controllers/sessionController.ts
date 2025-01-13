@@ -9,12 +9,7 @@ export const sessionController = async (req: Request, res: Response) => {
     const user = await UserModel.findOneById<User>(req.user.id);
 
     if (user) {
-      return res.sendData({
-        data: {
-          ...user,
-          languages: JSON.parse(user.languages),
-        },
-      });
+      return res.sendData(user);
     } else {
       return res.sendStatus(401);
     }

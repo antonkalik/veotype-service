@@ -17,7 +17,7 @@ export const updatePasswordController = async (
 
     // implement the situation when no user
 
-    return res.sendData({ data: { id: user.id } });
+    return res.sendData({ id: user.id });
   } catch (error) {
     return res.sendStatus(500);
   }

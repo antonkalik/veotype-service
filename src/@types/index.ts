@@ -1,6 +1,6 @@
 export enum Role {
   Admin = 'admin',
-  Blogger = 'blogger',
+  User = 'user',
 }
 
 export type UserSession = {
@@ -23,10 +23,8 @@ export interface User extends DatabaseDate {
   first_name: string;
   last_name: string;
   password: string;
-  age: number;
   role: Role;
   nationality: string;
-  languages: string;
   date_of_birth: Date;
   bio: string;
 }

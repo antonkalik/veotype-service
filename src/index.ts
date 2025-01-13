@@ -8,6 +8,7 @@ import { router } from 'src/routes';
 import { initialize } from 'src/initializers';
 import { sendErrorMiddleware } from 'src/middlewares/sendErrorMiddleware';
 import { sendDataMiddleware } from 'src/middlewares/sendDataMiddleware';
+import { rateLimitMiddleware } from 'src/middlewares/rateLimitMiddleware';
 
 dotenv.config();
 
@@ -19,6 +20,7 @@ app.use(cors());
 app.use(morgan('dev'));
 app.use(sendErrorMiddleware);
 app.use(sendDataMiddleware);
+app.use(rateLimitMiddleware);
 app.use('/api/v1', router);
 
 (async () => {
