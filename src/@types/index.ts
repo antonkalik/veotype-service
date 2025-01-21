@@ -1,3 +1,5 @@
+import { KeyboardType, Locale } from 'src/@types/enums';
+
 export enum Role {
   Admin = 'admin',
   User = 'user',
@@ -55,4 +57,13 @@ export type ServiceError = {
   error: string;
   status: number;
   success: false;
+};
+
+export type Settings = {
+  id: number;
+  user_id: number;
+  dark_mode: string;
+  locale: Locale;
+  keyboard_type: KeyboardType;
+  show_tips: boolean;
 };

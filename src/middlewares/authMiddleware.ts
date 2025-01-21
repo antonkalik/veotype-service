@@ -8,28 +8,28 @@ export async function authMiddleware(req: Request, res: Response, next: NextFunc
   const token = authHeader && authHeader.split(' ')[1];
   const JWT_SECRET = process.env.JWT_SECRET;
 
-  if (!token) return res.sendStatus(401);
+  if (!token) return res.sendError(401);
 
   if (!JWT_SECRET) {
-    return res.sendStatus(500);
+    return res.sendError(500);
   }
 
   const tokenServiceResponse = await TokenService.verify<UserSession>(token);
 
   if (!tokenServiceResponse.success) {
-    return res.sendStatus(401);
+    return res.sendError(401);
   }
 
   const sessionServiceResponse = await SessionService.get(tokenServiceResponse.data.id);
 
   if (!sessionServiceResponse.success) {
-    return res.sendStatus(401);
+    return res.sendError(401);
   }
 
   const storedToken = sessionServiceResponse.data;
 
   if (!storedToken || storedToken !== token) {
-    return res.sendStatus(401);
+    return res.sendError(401);
   }
   req.user = tokenServiceResponse.data;
   next();
